@@ -91,10 +91,20 @@
   mix-blend-mode: hard-light;
   font-family: var(--press), sans-serif;
   font-size: 14px;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: var(--span-text-color, #fff);
   line-height: normal;
   text-transform: uppercase;
+}
+
+@supports (-webkit-text-stroke: 1px #fff) {
+  .picture-label {
+    -webkit-text-stroke: 1px var(--span-text-color, #fff);
+  }
+}
+
+@supports (text-stroke: 1px #fff) {
+  .picture-label {
+    text-stroke: 1px var(--span-text-color, #fff);
+  }
 }
 
 .card-content {
