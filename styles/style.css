@@ -11,6 +11,348 @@
 */
 
 .page {
+  font-family: var(--inter), sans-serif;
+  font-variation-settings: "wght" (--inter-regular);
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  background-image: var(--background-image);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: var(--header-width);
+  block-size: var(--header-height);
+  background-color: white;
+  margin: 100px auto 98px;
+  border: 2px solid var(--main-color, #000);
+}
+
+.logo-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
+
+.logo {
+  font-family: var(--press), sans-serif;
+  font-size: clamp(49px, 9vw, 65px);
+}
+
+.description {
+  font-family: var(--press), sans-serif;
+  font-size: clamp(14px, 3vw, 23px);
+}
+
+.content {
+  inline-size: var(--header-width);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.card {
+  background-color: var(--span-text-color, #fff);
+  border: 2px solid var(--main-color, #000);
+}
+
+.card-header {
+  font-family: var(--inter), sans-serif;
+  font-size: 18px;
+  font-weight: var(--inter-bold);
+  padding: 4px 10px;
+}
+
+.card-picture-container {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-top: 2px solid var(--main-color, #000);
+  border-bottom: 2px solid var(--main-color, #000);
+}
+
+.card-picture {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.picture-label {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+  font-family: var(--press), sans-serif;
+  font-size: 14px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--span-text-color, #fff);
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.card-content {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  font-family: var(--inter), sans-serif;
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: var(--inter-regular);
+}
+
+.like-icon {
+  block-size: 39px;
+  margin-block-start: -2px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: end;
+  gap: 0;
+}
+
+.button {
+  position: relative;
+  block-size: 38px;
+  transition: 0.3s ease;
+  font-family: var(--press), sans-serif;
+  font-size: 14px;
+  line-height: 90%;
+  background-color: white;
+  border: 2px solid var(--main-color, #000);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0 0 var(--main-color, #000);
+  transition: 0.3s ease;
+}
+
+.button.card__icon-button {
+  border: 2px solid transparent;
+}
+
+.button.card__icon-button:focus {
+  outline: none;
+}
+
+.button.card__icon-button:focus-visible {
+  border: 2px solid var(--main-color, #000);
+  box-shadow: none;
+  transition: 0.3s ease;
+}
+
+.button.card__icon-button::before {
+  content: none;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  background-color: var(--main-color, #000);
+  block-size: 100%;
+  inline-size: 100%;
+  inset: 0;
+  transform: translateX(-100%);
+  transition: 0.5s ease-in-out;
+}
+
+.button:hover::before {
+  transform: translateX(0);
+  transition: 0.5s ease-in-out;
+}
+
+.card__like-button {
+  inline-size: 130px;
+}
+
+.button__text {
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
+  color: var(--span-text-color);
+  /* background-color: white; */
+}
+
+.save-memory {
+  padding: 15px 20px;
+  inline-size: fit-content;
+  block-size: fit-content;
+  margin-bottom: 200px;
+  margin-inline: auto;
+}
+
+.save-button__icon {
+  inline-size: 21px;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
+  fill: white;
+}
+
+@media (width <= 375px) {
+  .header {
+    margin-block-end: 100px;
+  }
+  .save-memory {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-content: center;
+  }
+  .save-button__icon {
+    inline-size: 28px;
+    align-self: center;
+  }
+}
+
+.contour {
+  transition: fill 0.1s linear;
+}
+
+.core {
+  transition: fill 0.3s linear 0.03s;
+}
+
+.main-body {
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .core {
+  fill: var(--core-color);
+  transition: 0.3s 0s;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--core-color);
+  transition: 0.3s 0.05s;
+}
+
+.like-icon:active .core {
+  fill: var(--animation-fill-color);
+  transition: 0.3s 0s;
+}
+
+.like-icon:active .main-body {
+  fill: var(--animation-fill-color);
+  transition: 0.3s 0.05s;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--animation-fill-color);
+  transition: 0.3s 0s;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--animation-fill-color);
+  transition: 0.3s 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--animation-fill-color);
+  transition: 0.3s 0.06s;
+}
+
+.like-icon.is-liked .heart {
+  animation: heart-scale 0.3s ease-in 0.1s 1;
+  transform-origin: center;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks 0.3s ease-in 0.3s 1;
+}
+
+.dialog {
+  inline-size: clamp(341px, 90vw, 353px);
+  padding: 30px;
+  position: fixed;
+  inset: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+dialog::backdrop {
+  background-color: var(--main-color, #000);
+  opacity: 75%;
+}
+
+.save-block {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  gap: 30px;
+}
+
+.dialog .save-button__icon {
+  inline-size: 39px;
+  block-size: 39px;
+  flex-shrink: 0;
+}
+
+.save-block-text {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.dialog span {
+  font-family: var(--press), sans-serif;
+  line-height: 150%;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.button_ok {
+  text-transform: uppercase;
+}
+
+.progulka {
+  filter: saturate(150%) sepia(50%);
+}
+
+.otdih {
+  filter: contrast(110%) brightness(1.2);
+}
+
+.mashinka {
+  filter: contrast(150%);
+}
+
+.zakat {
+  filter: hue-rotate(90deg) contrast(200%);
+}
+
+.mashina {
+  filter: hue-rotate(180deg) sepia(50%);
+}
+
+.potter {
+  filter: sepia(50%);
+}
+
+.park {
+  filter: hue-rotate(320deg) contrast(220%);
+}
+
+.mocha {
+  filter: contrast(150%);
 }
