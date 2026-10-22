@@ -339,7 +339,7 @@ dialog[open]::backdrop {
   align-items: center;
 }
 
-.dialog[open] span {
+.dialog[open] p {
   font-family: var(--press), sans-serif;
   line-height: 150%;
   font-size: 14px;
