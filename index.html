@@ -17,19 +17,19 @@
   <body class="page">
     <header class="header">
       <div class="logo-group">
-        <h1 class="logo">&lt;/HTML&gt;</h1>
-        <h2 class="description">закрывающий тег</h2>
+        <span class="logo">&lt;/HTML&gt;</span>
+        <h1 class="description">закрывающий тег</h1>
       </div>
     </header>
     <main>
       <section class="content">
         <article class="card">
-          <div class="card-header">
+          <h2 class="card-header">
             Фритрек и нулевой спринт: Подготовка к работе
-          </div>
+          </h2>
           <div class="card-picture-container">
             <img
-              class="card-picture progulka"
+              class="card-picture saturate-sepia"
               src="./images/progulka.jfif"
               alt="Сквер рядом с м. Пушкинская, фонтан, ночь"
               loading="lazy"
@@ -95,10 +95,10 @@
           </div>
         </article>
         <article class="card">
-          <div class="card-header">1 спринт: Я — чистый лист</div>
+          <h2 class="card-header">1 спринт: Я — чистый лист</h2>
           <div class="card-picture-container">
             <img
-              class="card-picture otdih"
+              class="card-picture contrast-brightness"
               src="./images/otdih.jfif"
               alt="Человек отдыхает на большой машине"
               loading="lazy"
@@ -165,10 +165,10 @@
           </div>
         </article>
         <article class="card">
-          <div class="card-header">1 спринт: А если не получится?</div>
+          <h2 class="card-header">1 спринт: А если не получится?</h2>
           <div class="card-picture-container">
             <img
-              class="card-picture mashinka"
+              class="card-picture contrast"
               src="./images/mashinka.jfif"
               alt="Желтая японская праворульная машина"
               loading="lazy"
@@ -235,10 +235,10 @@
           </div>
         </article>
         <article class="card">
-          <div class="card-header">2 спринт: Погоня за идеалом</div>
+          <h2 class="card-header">2 спринт: Погоня за идеалом</h2>
           <div class="card-picture-container">
             <img
-              class="card-picture zakat"
+              class="card-picture hue-rotate-contrast"
               src="./images/zakat.jfif"
               alt="Необычный закат зеленого цвета"
               loading="lazy"
@@ -306,10 +306,10 @@
           </div>
         </article>
         <article class="card">
-          <div class="card-header">2 спринт: О тех, кто рядом</div>
+          <h2 class="card-header">2 спринт: О тех, кто рядом</h2>
           <div class="card-picture-container">
             <img
-              class="card-picture mashina"
+              class="card-picture hue-rotate-sepia"
               src="./images/mashina.jfif"
               alt="Ретро-машина"
               loading="lazy"
@@ -375,10 +375,10 @@
           </div>
         </article>
         <article class="card">
-          <div class="card-header">3 спринт: Обходные стратегии</div>
+          <h2 class="card-header">3 спринт: Обходные стратегии</h2>
           <div class="card-picture-container">
             <img
-              class="card-picture potter"
+              class="card-picture sepia"
               src="./images/potter.jfif"
               alt="Стаканчик с кофе из кафе Гарри Поттера"
               loading="lazy"
@@ -441,10 +441,10 @@
           </div>
         </article>
         <article class="card">
-          <div class="card-header">3 спринт: Когда опускаются руки</div>
+          <h2 class="card-header">3 спринт: Когда опускаются руки</h2>
           <div class="card-picture-container">
             <img
-              class="card-picture park"
+              class="card-picture hue-rotate-contrast-strong"
               src="./images/park.jfif"
               alt="Букет цветов на столе в кафе"
               loading="lazy"
@@ -512,10 +512,10 @@
           </div>
         </article>
         <article class="card">
-          <div class="card-header">«Сейчас я здесь»</div>
+          <h2 class="card-header">«Сейчас я здесь»</h2>
           <div class="card-picture-container">
             <img
-              class="card-picture mocha"
+              class="card-picture contrast"
               src="./images/mocha.jfif"
               alt="Фото создателя языка Джава-скрипт и подпись"
               loading="lazy"
@@ -603,14 +603,14 @@
             <svg class="save-button__icon" aria-hidden="true">
               <use href="./svg/floppy.svg#icon-save"></use>
             </svg>
-            <span>Вставьте дискету, чтобы продолжить</span>
+            <p>Вставьте дискету, чтобы продолжить</p>
           </div>
           <button
             class="button button_ok"
             type="submit"
             onclick="window['dialog-id'].close()"
           >
-            ок
+            <span class="button__text">ок</span>
           </button>
         </div>
       </dialog>

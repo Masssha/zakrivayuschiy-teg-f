@@ -12,7 +12,7 @@
 
 .page {
   font-family: var(--inter), sans-serif;
-  font-variation-settings: "wght" (--inter-regular);
+  font-variation-settings: "wght" var(--inter-regular);
   min-inline-size: 320px;
   min-block-size: 100dvb;
   background-image: var(--background-image);
@@ -46,6 +46,7 @@
 .description {
   font-family: var(--press), sans-serif;
   font-size: clamp(14px, 3vw, 23px);
+  text-transform: uppercase;
 }
 
 .content {
@@ -64,7 +65,7 @@
 .card-header {
   font-family: var(--inter), sans-serif;
   font-size: 18px;
-  font-weight: var(--inter-bold);
+  font-variation-settings: "wght" var(--inter-bold);
   padding: 4px 10px;
 }
 
@@ -93,17 +94,22 @@
   font-size: 14px;
   line-height: normal;
   text-transform: uppercase;
+  text-shadow:
+    1px 0 var(--span-text-color, #fff),
+    -1px 0 var(--span-text-color, #fff),
+    0 1px var(--span-text-color, #fff),
+    0 -1px var(--span-text-color, #fff),
+    1px 1px var(--span-text-color, #fff),
+    -1px -1px var(--span-text-color, #fff),
+    1px -1px var(--span-text-color, #fff),
+    -1px 1px var(--span-text-color, #fff);
 }
 
-@supports (-webkit-text-stroke: 1px #fff) {
+@supports ((-webkit-text-stroke: 1px #fff) or (text-stroke: 1px #fff)) {
   .picture-label {
     -webkit-text-stroke: 1px var(--span-text-color, #fff);
-  }
-}
-
-@supports (text-stroke: 1px #fff) {
-  .picture-label {
     text-stroke: 1px var(--span-text-color, #fff);
+    text-shadow: none;
   }
 }
 
@@ -125,14 +131,13 @@
 }
 
 .like-icon {
-  block-size: 39px;
-  margin-block-start: -2px;
+  block-size: 38px;
 }
 
 .buttons-container {
   display: flex;
   justify-content: end;
-  gap: 0;
+  gap: 7px;
 }
 
 .button {
@@ -150,6 +155,15 @@
 
 .button:focus {
   outline: none;
+}
+
+.card__icon-button {
+  inline-size: 38px;
+  block-size: 38px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button:focus-visible {
@@ -207,7 +221,7 @@
   padding: 15px 20px;
   inline-size: fit-content;
   block-size: fit-content;
-  margin-bottom: 200px;
+  margin-block-end: 100px;
   margin-inline: auto;
 }
 
@@ -292,15 +306,16 @@
   animation: sparks 0.3s ease-in 0.3s 1;
 }
 
-.dialog {
+.dialog[open] {
   inline-size: clamp(341px, 90vw, 353px);
   padding: 30px;
   position: fixed;
   inset: 0;
   transition: opacity 0.3s ease-in-out;
+  border: 2px solid var(--main-color, #000);
 }
 
-dialog::backdrop {
+dialog[open]::backdrop {
   background-color: var(--main-color, #000);
   opacity: 75%;
 }
@@ -312,7 +327,7 @@ dialog::backdrop {
   gap: 30px;
 }
 
-.dialog .save-button__icon {
+.dialog[open] .save-button__icon {
   inline-size: 39px;
   block-size: 39px;
   flex-shrink: 0;
@@ -324,7 +339,7 @@ dialog::backdrop {
   align-items: center;
 }
 
-.dialog span {
+.dialog[open] span {
   font-family: var(--press), sans-serif;
   line-height: 150%;
   font-size: 14px;
@@ -335,34 +350,30 @@ dialog::backdrop {
   text-transform: uppercase;
 }
 
-.progulka {
+.saturate-sepia {
   filter: saturate(150%) sepia(50%);
 }
 
-.otdih {
+.contrast-brightness {
   filter: contrast(110%) brightness(1.2);
 }
 
-.mashinka {
+.contrast {
   filter: contrast(150%);
 }
 
-.zakat {
+.hue-rotate-contrast {
   filter: hue-rotate(90deg) contrast(200%);
 }
 
-.mashina {
+.hue-rotate-sepia {
   filter: hue-rotate(180deg) sepia(50%);
 }
 
-.potter {
+.sepia {
   filter: sepia(50%);
 }
 
-.park {
+.hue-rotate-contrast-strong {
   filter: hue-rotate(320deg) contrast(220%);
-}
-
-.mocha {
-  filter: contrast(150%);
 }
